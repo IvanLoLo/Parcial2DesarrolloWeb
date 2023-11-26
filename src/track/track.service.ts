@@ -4,7 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { TrackEntity } from './track.entity';
 import { AlbumEntity } from '../album/album.entity';
-import { AlbumService } from 'src/album/album.service';
+import { AlbumService } from '../album/album.service';
 import { BusinessLogicException, BusinessError } from '../shared/errors/business-errors';
 
 @Injectable()

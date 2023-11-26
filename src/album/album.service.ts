@@ -30,7 +30,7 @@ export class AlbumService {
     }
 
     async delete(id: string) {
-        const album: AlbumEntity = await this.albumRepository.findOne({ where: {id} });
+        const album: AlbumEntity = await this.albumRepository.findOne({ where: {id}, relations: ['performers', 'tracks'] });
         if(!album) throw new BusinessLogicException('The album with the given id was not found.', BusinessError.NOT_FOUND);
 
         if(album.tracks.length > 0) throw new BusinessLogicException('The album has tracks associated.', BusinessError.BAD_REQUEST);
